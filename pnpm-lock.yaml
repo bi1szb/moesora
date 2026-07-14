@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      pnpm:
+        specifier: ^11.13.0
+        version: 11.13.0
     devDependencies:
       '@halo-dev/theme-package-cli':
         specifier: ^1.1.1
@@ -884,6 +888,11 @@ packages:
 
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
+
+  pnpm@11.13.0:
+    resolution: {integrity: sha512-iNlHJNjy5sGGdEpVhMblnsrIaex7oV6ctM1ijo3HBmggskgdjuO1HqjaMjpzeAaKpYxVajcg0yt8IKBR0Ig2Og==}
+    engines: {node: '>=22.13'}
+    hasBin: true
 
   postcss-attribute-case-insensitive@6.0.3:
     resolution: {integrity: sha512-KHkmCILThWBRtg+Jn1owTnHPnFit4OkqS+eKiGEOPIGke54DCeYGJ6r0Fx/HjfE9M9kznApCLcU0DvnPchazMQ==}
@@ -1911,6 +1920,8 @@ snapshots:
       util: 0.10.4
 
   picocolors@1.1.1: {}
+
+  pnpm@11.13.0: {}
 
   postcss-attribute-case-insensitive@6.0.3(postcss@8.5.15):
     dependencies:

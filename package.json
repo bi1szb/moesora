@@ -40,5 +40,8 @@
     "Firefox ESR",
     "Safari >= 12",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "pnpm": "^11.13.0"
+  }
 }
