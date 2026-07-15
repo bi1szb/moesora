@@ -77,13 +77,6 @@ spec:
             - { label: "开启", value: true }
             - { label: "关闭", value: false }
 
-        - $formkit: select
-          name: hero_mode
-          label: 首页大图-高度模式
-          value: "banner"
-          options:
-            - { label: "满宽横幅", value: "banner" }
-            - { label: "全屏(整屏高)", value: "fullscreen" }
 
         - $formkit: text
           name: site_bg
@@ -550,7 +543,7 @@ spec:
         - $formkit: text
           name: since
           label: 建站时间
-          help: "格式 2024-01-01，页脚实时显示「已建站 X天X时X分X秒」；留空不显示"
+          help: "格式 2024-01-01，页脚实时显示「建站于 日期 · 已建站 X天X时X分X秒」；留空不显示"
         - $formkit: text
           name: icp
           label: ICP 备案号
@@ -563,25 +556,6 @@ spec:
           name: police_code
           label: 公安备案-编号(纯数字)
           help: "公安备案号里的纯数字部分，用于生成查询跳转链接"
-        - $formkit: text
-          name: powered_name
-          label: 页脚 Powered by 文字
-          value: "Halo"
-          help: '页脚 "Powered by" 后面显示的文字，可改成站点名称或昵称'
-        - $formkit: text
-          name: powered_url
-          label: 页脚 Powered by 链接
-          value: "https://halo.run"
-          help: "点击上面文字跳转的地址，如站点主页"
-        - $formkit: text
-          name: theme_name
-          label: 页脚 Theme 文字
-          value: "Moesora"
-        - $formkit: text
-          name: theme_url
-          label: 页脚 Theme 链接
-          value: ""
-          help: "点击 Theme 文字跳转的地址，如 GitHub 主题源码页；留空则跳首页"
 
     - group: comment
       label: 评论

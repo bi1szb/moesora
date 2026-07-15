@@ -7,7 +7,7 @@
   <!-- 签名头图：背景图(可选) / 默认樱花粉渐变 + 波浪底边 -->
   <section class="moe-hero" th:if="${(theme.config.basic?.hero_enable) ?: true}"
            th:with="heroBg=${theme.config.basic?.hero_bg},heroVideo=${theme.config.basic?.hero_video}"
-           th:classappend="${((!#strings.isEmpty(heroBg) or !#strings.isEmpty(heroVideo)) ? ' has-bg' : '') + (theme.config.basic?.hero_mode == 'fullscreen' ? ' is-fullscreen' : '')}"
+           th:classappend="${(!#strings.isEmpty(heroBg) or !#strings.isEmpty(heroVideo)) ? ' has-bg' : ''}"
            th:style="${!#strings.isEmpty(heroBg)} ? 'background-image:url(' + ${heroBg} + ')' : ''">
     <video th:if="${!#strings.isEmpty(heroVideo)}" class="moe-hero-video" data-no-player
            autoplay muted loop playsinline preload="auto"

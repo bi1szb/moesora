@@ -1,21 +1,21 @@
 {
   "name": "moesora",
-  "version": "1.1.1",
-  "description": "As lovely as sora！",
+  "version": "1.1.5",
+  "description": "声音是可以变的么么哒",
   "private": false,
   "type": "module",
   "author": {
-    "name": "Hoshi",
-    "url": "https://www.moesora.cn/"
+    "name": "bi1szb",
+    "url": "https://github.com/bi1szb"
   },
   "license": "MIT",
-  "homepage": "https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora",
+  "homepage": "https://github.com/bi1szb/moesora",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora.git"
+    "url": "git+https://github.com/bi1szb/moesora.git"
   },
   "bugs": {
-    "url": "https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora/issues"
+    "url": "https://github.com/bi1szb/moesora/issues"
   },
   "scripts": {
     "dev": "vite build --watch",

@@ -6,14 +6,14 @@ metadata:
 spec:
   displayName: Moesora
   author:
-    name: Hoshi
-    website: "https://www.moesora.cn/"
-  description: As lovely as sora！
+    name: bi1szb
+    website: "https://github.com/bi1szb"
+  description: 声音是可以变的么么哒
   logo: "/themes/moesora/assets/dist/logo.svg"
-  homepage: "https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora"
-  repo: "https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora.git"
-  issues: "https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora/issues"
-  version: "1.1.1"
+  homepage: "https://github.com/bi1szb/moesora"
+  repo: "https://github.com/bi1szb/moesora.git"
+  issues: "https://github.com/bi1szb/moesora/issues"
+  version: "1.1.5"
   requires: ">=2.14.0"
   settingName: "moesora-settings"
   configMapName: "moesora-configmap"
@@ -25,4 +25,4 @@ spec:
         file: page_wishes.html
   license:
     - name: "MIT"
-      url: "https://github.com/7l4i8y1a4n3g8-7l4i8y1a4n3g8-1438-9748/moesora/blob/master/LICENSE"
+      url: "https://github.com/bi1szb/moesora/blob/master/LICENSE"

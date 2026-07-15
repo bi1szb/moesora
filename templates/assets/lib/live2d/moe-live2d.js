@@ -69,8 +69,13 @@
   var IDLE_SECONDS = number(L.idleSeconds, 55, 15, 600);
   var SOUND_VOLUME = number(L.soundVolume, 0.85, 0, 1);
 
-  var BASE_W = 320;
-  var BASE_H = 400;
+  var BASE_W = 290;
+  var BASE_H = 225;
+  var MODEL_ZOOM = number(L.modelZoom, 1.0, 0.85, 1.6);
+  var MODEL_OFFSET_X = number(L.modelOffsetX, 10, -240, 240);
+  var MODEL_OFFSET_Y = number(L.modelOffsetY, 11, -240, 240);
+  var TOOLBAR_X = number(L.toolbarX, 60, -120, 420);
+  var TOOLBAR_TOP = number(L.toolbarTop, -10, -120, 320);
   var DPR = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
   var REDUCED_MOTION = !!(
     window.matchMedia &&
@@ -249,7 +254,7 @@
       ".moe-l2d-right{right:0}.moe-l2d-left{left:0}",
       ".moe-l2d-canvas{display:block;width:100%;height:100%;pointer-events:auto;cursor:grab;touch-action:none}.moe-l2d.is-dragging .moe-l2d-canvas{cursor:grabbing}",
       ".moe-l2d-off.moe-l2d-right{transform:translateX(125%);opacity:0;pointer-events:none}.moe-l2d-off.moe-l2d-left{transform:translateX(-125%);opacity:0;pointer-events:none}",
-      ".moe-l2d-tools{position:absolute;top:8px;display:flex;gap:6px;opacity:.2;transition:opacity .2s ease;pointer-events:auto;z-index:8}.moe-l2d-right .moe-l2d-tools{right:8px}.moe-l2d-left .moe-l2d-tools{left:8px}.moe-l2d:hover .moe-l2d-tools,.moe-l2d:focus-within .moe-l2d-tools{opacity:1}",
+      ".moe-l2d-tools{position:absolute;top:var(--l2d-tools-top,21px);display:flex;gap:6px;opacity:.2;transition:opacity .2s ease;pointer-events:auto;z-index:8}.moe-l2d-right .moe-l2d-tools{right:var(--l2d-tools-x,2px)}.moe-l2d-left .moe-l2d-tools{left:var(--l2d-tools-x,2px)}.moe-l2d:hover .moe-l2d-tools,.moe-l2d:focus-within .moe-l2d-tools{opacity:1}",
       ".moe-l2d-tools button,.moe-l2d-panel button{font:inherit}.moe-l2d-tool{width:31px;height:31px;border:1px solid var(--l2d-border);border-radius:50%;background:color-mix(in srgb,var(--l2d-card) 91%,transparent);color:var(--l2d-muted);box-shadow:0 5px 16px rgba(30,20,30,.15);backdrop-filter:blur(8px);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:color .18s ease,transform .16s ease,background .18s ease}.moe-l2d-tool:hover,.moe-l2d-tool.is-active{color:var(--l2d-theme);background:var(--l2d-card);transform:translateY(-2px)}",
       ".moe-l2d-bubble{position:absolute;bottom:calc(100% - 12px);width:max-content;max-width:min(300px,70vw);white-space:pre-line;background:var(--l2d-card);color:var(--l2d-text);border:1px solid var(--l2d-border);border-radius:14px;box-shadow:var(--l2d-shadow);padding:10px 14px;font-size:13px;line-height:1.65;pointer-events:none;animation:moeL2dEnhancedPop .22s ease;z-index:10}.moe-l2d-right .moe-l2d-bubble{right:7%}.moe-l2d-left .moe-l2d-bubble{left:7%}.moe-l2d-bubble[hidden]{display:none}",
       "@keyframes moeL2dEnhancedPop{from{transform:translateY(7px) scale(.97);opacity:0}to{transform:none;opacity:1}}",
@@ -318,6 +323,8 @@
     widget.className = "moe-l2d moe-l2d-" + POS;
     widget.style.width = W + "px";
     widget.style.height = H + "px";
+    widget.style.setProperty("--l2d-tools-x", TOOLBAR_X + "px");
+    widget.style.setProperty("--l2d-tools-top", TOOLBAR_TOP + "px");
     widget.innerHTML =
       '<div class="moe-l2d-bubble" data-role="bubble" hidden></div>' +
       '<canvas class="moe-l2d-canvas" aria-label="Live2D 桌宠"></canvas>' +
@@ -1468,16 +1475,32 @@
 
   function placeModel() {
     if (!model) return;
-    var mw = model.width;
-    var mh = model.height;
+    model.scale.set(1);
+    model.x = 0;
+    model.y = 0;
+
+    var bounds = null;
+    try {
+      if (model.getLocalBounds) bounds = model.getLocalBounds();
+    } catch (e) {}
+
+    var bx = bounds && isFinite(bounds.x) ? bounds.x : 0;
+    var by = bounds && isFinite(bounds.y) ? bounds.y : 0;
+    var mw = bounds && isFinite(bounds.width) ? bounds.width : model.width;
+    var mh = bounds && isFinite(bounds.height) ? bounds.height : model.height;
     if (!mw || !mh) return;
-    var fit = Math.min(W / mw, H / mh) * 0.985;
+
+    var fit = Math.min(W / mw, H / mh) * 0.985 * MODEL_ZOOM;
     model.scale.set(fit);
+
     var sw = mw * fit;
     var sh = mh * fit;
-    var slack = Math.max(0, W - sw);
-    model.x = POS === "left" ? slack * 0.08 : slack * 0.92;
-    model.y = H - sh + Math.round(H * 0.018);
+    var offsetScale = Math.min(
+      W / Math.max(1, BASE_W),
+      H / Math.max(1, BASE_H),
+    );
+    model.x = (W - sw) / 2 - bx * fit + MODEL_OFFSET_X * offsetScale;
+    model.y = H - sh - by * fit + MODEL_OFFSET_Y * offsetScale;
   }
 
   function switchModel() {

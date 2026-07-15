@@ -985,6 +985,10 @@ window.MoesoraInitPage = ->
     return
   if typeof window.MoesoraLibsInit == 'function'
     window.MoesoraLibsInit()
+  if typeof window.MoesoraMusicAutoplay == 'function'
+    try
+      window.MoesoraMusicAutoplay()
+    catch e
   if typeof window.MoesoraTextDiagramInit == 'function'
     window.MoesoraTextDiagramInit()
   return

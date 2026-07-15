@@ -43,6 +43,83 @@
     <link rel="stylesheet" th:href="@{/assets/lib/aplayer/APlayer.min.css}"/>
     <script th:src="@{/assets/lib/aplayer/APlayer.min.js}"></script>
     <script th:src="@{/assets/lib/meting/Meting.min.js}"></script>
+    <script>
+    (function () {
+      var unlockEvents = ["pointerdown", "touchstart", "keydown"];
+      var unlockArmed = false;
+      var timer = null;
+
+      function getPlayers() {
+        return Array.prototype.slice.call(document.querySelectorAll("meting-js"))
+          .map(function (el) { return el && el.aplayer; })
+          .filter(function (ap) { return ap && ap.audio; });
+      }
+
+      function clearUnlock() {
+        if (!unlockArmed) return;
+        unlockEvents.forEach(function (name) {
+          document.removeEventListener(name, unlock, true);
+        });
+        unlockArmed = false;
+      }
+
+      function armUnlock() {
+        if (unlockArmed) return;
+        unlockArmed = true;
+        unlockEvents.forEach(function (name) {
+          document.addEventListener(name, unlock, { capture: true, once: true });
+        });
+      }
+
+      function requestPlay(ap) {
+        var audio = ap && ap.audio;
+        if (!audio || !audio.paused) return true;
+        try {
+          var ret = ap.play ? ap.play() : audio.play();
+          if (ret && typeof ret.then === "function") {
+            ret.then(clearUnlock).catch(armUnlock);
+            return true;
+          }
+          if (!audio.paused) clearUnlock();
+          return !audio.paused;
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function tryPlay() {
+        var players = getPlayers();
+        for (var i = 0; i < players.length; i++) {
+          if (requestPlay(players[i])) return true;
+        }
+        return false;
+      }
+
+      function unlock() {
+        if (!tryPlay()) armUnlock();
+      }
+
+      function start() {
+        var tries = 0;
+        if (timer) clearInterval(timer);
+        armUnlock();
+        timer = setInterval(function () {
+          if (tryPlay() || ++tries > 80) {
+            clearInterval(timer);
+            timer = null;
+            if (tries > 80) armUnlock();
+          }
+        }, 250);
+      }
+
+      window.MoesoraMusicAutoplay = start;
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start, { once: true });
+      } else {
+        start();
+      }
+    })();
+    </script>
   </th:block>
 
   <!-- 初始化（全部加防御性判断，库没加载或无正文都安全跳过） -->

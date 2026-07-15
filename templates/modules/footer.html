@@ -15,12 +15,7 @@
           class="moe-footer-since"
           th:if="${theme.config.footer?.since != null and theme.config.footer?.since != ''}"
         >
-          <span class="moe-since-ico"
-            ><th:block
-              th:replace="~{modules/icons :: icon('sparkle')}"
-            ></th:block
-          ></span>
-          已建站 <span id="moe-run-since">…</span>
+          <span id="moe-run-since">…</span>
         </p>
 
         <p
@@ -65,11 +60,14 @@
         th:inline="javascript"
       >
         (function () {
-          var since = new Date(
-            /*[[${theme.config.footer.since}]]*/ "".replace(/-/g, "/"),
-          );
+          var sinceText = /*[[${theme.config.footer.since}]]*/ "";
+          sinceText = String(sinceText || "").trim();
+          var since = new Date(sinceText.replace(/-/g, "/"));
           var el = document.getElementById("moe-run-since");
           if (!el || isNaN(since.getTime())) return;
+          function pad(n) {
+            return n < 10 ? "0" + n : "" + n;
+          }
           function upd() {
             var s = Math.max(
               0,
@@ -81,7 +79,8 @@
             s -= h * 3600;
             var m = Math.floor(s / 60);
             s -= m * 60;
-            el.textContent = d + " 天 " + h + " 时 " + m + " 分 " + s + " 秒";
+            el.textContent =
+              "已建站 " + d + " 天 " + h + " 时 " + m + " 分 " + s + " 秒";
           }
           upd();
           setInterval(upd, 1000);

@@ -103,7 +103,7 @@
     <h4 class="moe-card-title"><span class="moe-title-ico"><th:block th:replace="~{modules/icons :: icon('music')}"></th:block></span>音乐</h4>
     <meting-js server="netease" type="playlist"
                th:attr="id=${theme.config.sidebar?.netease_playlist_id}"
-               fixed="false" mini="false" autoplay="false" order="list" preload="none"
+               fixed="false" mini="false" autoplay="true" order="list" preload="auto"
                list-folded="true" list-max-height="180px"></meting-js>
   </section>
 
