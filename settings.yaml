@@ -77,7 +77,6 @@ spec:
             - { label: "开启", value: true }
             - { label: "关闭", value: false }
 
-
         - $formkit: text
           name: site_bg
           label: 全站背景图
@@ -183,14 +182,23 @@ spec:
             - { label: "Androidstudio（深）", value: "androidstudio" }
             - { label: "Agate（深）", value: "agate" }
             - { label: "StackOverflow Dark（深）", value: "stackoverflow-dark" }
-            - { label: "StackOverflow Light（浅）", value: "stackoverflow-light" }
+            - {
+                label: "StackOverflow Light（浅）",
+                value: "stackoverflow-light",
+              }
             - { label: "VS（浅）", value: "vs" }
             - { label: "Xcode（浅）", value: "xcode" }
             - { label: "Idea（浅）", value: "idea" }
             - { label: "Solarized Dark（深）", value: "base16/solarized-dark" }
-            - { label: "Solarized Light（浅）", value: "base16/solarized-light" }
+            - {
+                label: "Solarized Light（浅）",
+                value: "base16/solarized-light",
+              }
             - { label: "Kimbie Dark（深）", value: "kimbie-dark" }
-            - { label: "Tomorrow Night Blue（深）", value: "tomorrow-night-blue" }
+            - {
+                label: "Tomorrow Night Blue（深）",
+                value: "tomorrow-night-blue",
+              }
         - $formkit: select
           name: enable_katex
           label: KaTeX 数学公式
@@ -556,51 +564,6 @@ spec:
           name: police_code
           label: 公安备案-编号(纯数字)
           help: "公安备案号里的纯数字部分，用于生成查询跳转链接"
-
-    - group: comment
-      label: 评论
-      formSchema:
-        - $formkit: select
-          name: comment_system
-          label: 评论系统
-          value: "moesora"
-          help: "「Moesora 内置评论」为主题自带，游客填昵称+QQ+手机号+邮箱即可评论，无需登录（需在 Halo 后台「评论设置」开启允许匿名/自定义账号评论）；Halo 原生评论功能全；Twikoo/Waline 的客户端脚本已内置，只需填各自的服务端（envId / serverURL）"
-          options:
-            - { label: "Moesora 内置评论", value: "moesora" }
-            - { label: "Halo 原生评论", value: "native" }
-            - { label: "Twikoo", value: "twikoo" }
-            - { label: "Waline", value: "waline" }
-            - { label: "不显示评论", value: "none" }
-        - $formkit: text
-          name: comment_upload_url
-          label: 评论图片上传接口（图床）
-          value: ""
-          help: "仅内置评论。填写后游客插入图片会上传到该接口(form-data)并取回直链插入评论，效果同参考站(![名](链接))；留空则图片压缩后内嵌发送。例：自建 EasyImage/Lsky 的上传地址"
-        - $formkit: text
-          name: comment_upload_field
-          label: 图床文件字段名
-          value: "file"
-          help: "上传时图片对应的表单字段名，多数图床为 file"
-        - $formkit: text
-          name: comment_upload_resp
-          label: 图床返回URL字段路径
-          value: "data.url"
-          help: "从图床 JSON 响应里取图片直链的路径，点号分隔，如 data.url；留空会自动尝试常见字段(url / data.url / data.links.url)"
-        - $formkit: text
-          name: comment_upload_header
-          label: 图床请求头（可选）
-          value: ""
-          help: "如需鉴权填一个请求头，形如 Authorization: Bearer 访问令牌"
-        - $formkit: text
-          name: twikoo_env_id
-          label: "Twikoo envId"
-          help: "Twikoo 的环境 ID（腾讯云环境 ID 或 Vercel/自托管地址；客户端脚本已内置，无需填脚本地址）"
-          value: ""
-        - $formkit: text
-          name: waline_server
-          label: "Waline 服务端地址"
-          value: ""
-          help: "Waline serverURL，如 https://your-waline.vercel.app（客户端脚本与样式已内置，无需再填地址）"
 
     - group: custom
       label: 定制

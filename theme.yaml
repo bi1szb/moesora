@@ -13,7 +13,7 @@ spec:
   homepage: "https://github.com/bi1szb/moesora"
   repo: "https://github.com/bi1szb/moesora.git"
   issues: "https://github.com/bi1szb/moesora/issues"
-  version: "1.1.5"
+  version: "1.1.6"
   requires: ">=2.14.0"
   settingName: "moesora-settings"
   configMapName: "moesora-configmap"

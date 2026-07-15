@@ -1,0 +1,153 @@
+{
+  "Moc_0.moc3": [
+    "luoxiaohei-2023.moc3"
+  ],
+  "Physics_0.json": [
+    "luoxiaohei-2023.physics3.json"
+  ],
+  "Textures_0_0.png": [
+    "textures/texture-00.png"
+  ],
+  "Textures_1_0.png": [
+    "textures/texture-01.png"
+  ],
+  "Motions_跟宠_0_File_0.json": [
+    "motions/companions/heixiu.motion3.json"
+  ],
+  "Motions_跟宠_0_Sound_0.mp3": [
+    "audio/companions/heixiu.mp3"
+  ],
+  "Motions_跟宠_1_File_0.json": [
+    "motions/companions/xiaobai.motion3.json"
+  ],
+  "Motions_跟宠_1_Sound_0.mp3": [
+    "audio/companions/xiaobai.mp3"
+  ],
+  "Motions_跟宠_2_File_0.json": [
+    "motions/companions/shanxin.motion3.json"
+  ],
+  "Motions_跟宠_2_Sound_0.mp3": [
+    "audio/companions/shanxin.mp3"
+  ],
+  "Motions_跟宠_3_File_0.json": [
+    "motions/companions/wuxian.motion3.json"
+  ],
+  "Motions_跟宠_3_Sound_0.mp3": [
+    "audio/companions/wuxian.mp3"
+  ],
+  "Motions_跟宠_4_File_0.json": [
+    "motions/companions/bidiu.motion3.json"
+  ],
+  "Motions_跟宠_4_Sound_0.mp3": [
+    "audio/companions/bidiu.mp3"
+  ],
+  "Motions_跟宠_5_File_0.json": [
+    "motions/companions/agen.motion3.json"
+  ],
+  "Motions_跟宠_5_Sound_0.mp3": [
+    "audio/companions/agen.mp3"
+  ],
+  "Motions_桌面_0_File_0.json": [
+    "motions/desktop/drawing-tablet.motion3.json"
+  ],
+  "Motions_桌面_0_Sound_0.mp3": [
+    "audio/desktop/drawing-tablet.mp3",
+    "audio/left-ear/left-ear-02.mp3"
+  ],
+  "Motions_桌面_1_File_0.json": [
+    "motions/desktop/mouse.motion3.json"
+  ],
+  "Motions_桌面_1_Sound_0.mp3": [
+    "audio/desktop/mouse.mp3",
+    "audio/creator/creator.mp3",
+    "audio/birthday-hat/birthday-hat-01.mp3"
+  ],
+  "Motions_桌面_2_File_0.json": [
+    "motions/desktop/key-01.motion3.json"
+  ],
+  "Motions_桌面_3_File_0.json": [
+    "motions/desktop/key-02.motion3.json"
+  ],
+  "Motions_桌面_4_File_0.json": [
+    "motions/desktop/key-03.motion3.json"
+  ],
+  "Motions_桌面_7_File_0.json": [
+    "motions/desktop/enter.motion3.json"
+  ],
+  "Motions_桌面_7_Sound_0.mp3": [
+    "audio/desktop/enter.mp3"
+  ],
+  "Motions_左耳_0_File_0.json": [
+    "motions/left-ear/left-ear-01.motion3.json",
+    "motions/left-ear/left-ear-02.motion3.json"
+  ],
+  "Motions_左耳_0_Sound_0.mp3": [
+    "audio/left-ear/left-ear-01.mp3"
+  ],
+  "Motions_左耳_2_File_0.json": [
+    "motions/left-ear/left-ear-03.motion3.json"
+  ],
+  "Motions_左耳_2_Sound_0.mp3": [
+    "audio/left-ear/left-ear-03.mp3"
+  ],
+  "Motions_书_0_File_0.json": [
+    "motions/book/book.motion3.json"
+  ],
+  "Motions_书_0_Sound_0.mp3": [
+    "audio/book/book.mp3",
+    "audio/background/spirit-space.mp3"
+  ],
+  "Motions_书_4_File_0.json": [
+    "motions/book/page-turn.motion3.json"
+  ],
+  "Motions_书_4_Sound_0.mp3": [
+    "audio/book/page-turn.mp3"
+  ],
+  "Motions_背景_0_File_0.json": [
+    "motions/background/carpet.motion3.json"
+  ],
+  "Motions_背景_0_Sound_0.mp3": [
+    "audio/background/carpet.mp3"
+  ],
+  "Motions_背景_1_File_0.json": [
+    "motions/background/spirit-space.motion3.json"
+  ],
+  "Motions_制作者_0_File_0.json": [
+    "motions/creator/creator.motion3.json",
+    "motions/birthday-hat/birthday-hat-01.motion3.json",
+    "motions/birthday-hat/birthday-hat-02.motion3.json",
+    "motions/birthday-hat/birthday-hat-03.motion3.json"
+  ],
+  "Motions_生日帽_1_Sound_0.mp3": [
+    "audio/birthday-hat/birthday-hat-02.mp3"
+  ],
+  "Motions_生日帽_2_Sound_0.mp3": [
+    "audio/birthday-hat/birthday-hat-03.mp3"
+  ],
+  "Motions_恢复_0_File_0.json": [
+    "motions/reset/reset.motion3.json"
+  ],
+  "Motions_恢复_0_Sound_0.mp3": [
+    "audio/reset/reset.mp3"
+  ],
+  "Motions_右耳_0_File_0.json": [
+    "motions/right-ear/right-ear-01.motion3.json"
+  ],
+  "Motions_右耳_0_Sound_0.mp3": [
+    "audio/right-ear/right-ear-01.mp3",
+    "audio/start/start.mp3"
+  ],
+  "Motions_右耳_1_File_0.json": [
+    "motions/right-ear/right-ear-02.motion3.json",
+    "motions/right-ear/right-ear-03.motion3.json"
+  ],
+  "Motions_右耳_1_Sound_0.mp3": [
+    "audio/right-ear/right-ear-02.mp3"
+  ],
+  "Motions_右耳_2_Sound_0.mp3": [
+    "audio/right-ear/right-ear-03.mp3"
+  ],
+  "Motions_Start_2_File_0.json": [
+    "motions/start/start.motion3.json"
+  ]
+}
